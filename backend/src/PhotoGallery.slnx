@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/shared/">
+    <Project Path="../shared/PhotoGallery.ServiceDefaults/PhotoGallery.ServiceDefaults.csproj" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="PhotoGallery.Api/PhotoGallery.Api.csproj" />
+    <Project Path="PhotoGallery.Application/PhotoGallery.Application.csproj" />
+    <Project Path="PhotoGallery.Domain/PhotoGallery.Domain.csproj" />
+    <Project Path="PhotoGallery.Infrastructure/PhotoGallery.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="../tests/PhotoGallery.Tests/PhotoGallery.Tests.csproj" />
+  </Folder>
+</Solution>

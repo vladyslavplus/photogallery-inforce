@@ -1,0 +1,131 @@
+# ==========================
+# .NET / C#
+# ==========================
+
+# Build Folders
+bin/
+obj/
+out/
+
+# Rider
+.idea/
+*.sln.iml
+
+# VS Code
+.vscode/
+
+# Visual Studio
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# Rider
+.idea/
+
+# Rider cache
+*.ipr
+*.iws
+*.iml
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# EF Core
+*.db
+*.db-journal
+
+# Rider / Visual Studio temp files
+*.tmp
+*.log
+*.vspscc
+*.vssscc
+
+# ==========================
+# PostgreSQL
+# ==========================
+*.pgsql
+*.dump
+*.backup
+
+# ==========================
+# Node / Angular
+# ==========================
+node_modules/
+dist/
+tmp/
+out-tsc/
+.angular/
+.angular-cache/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Angular build output
+/dist/
+/build/
+/tmp/
+out-tsc/
+
+# ==========================
+# Test / Coverage
+# ==========================
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+*.profdata
+*.pdb
+*.opencover
+*.lcov
+*.snap
+
+# ==========================
+# OS Files
+# ==========================
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+.nfs*
+
+# ==========================
+# Logs / Secrets
+# ==========================
+*.log
+*.env
+.env.local
+.env.*.local
+secrets.json
+
+# ==========================
+# Other
+# ==========================
+*.bak
+*.swp
+*.swo
+
+# Uploaded files
+wwwroot/uploads/
