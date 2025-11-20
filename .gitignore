@@ -128,4 +128,4 @@ secrets.json
 *.swo
 
 # Uploaded files
-wwwroot/uploads/
+backend/src/PhotoGallery.Api/wwwroot/uploads/

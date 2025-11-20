@@ -1,4 +1,5 @@
-﻿using PhotoGallery.Application.Interfaces.Services;
+﻿using Microsoft.Extensions.Configuration;
+using PhotoGallery.Application.Interfaces.Services;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
 
@@ -11,11 +12,14 @@ namespace PhotoGallery.Infrastructure.Services
         private const string ThumbnailsFolder = "uploads/thumbnails";
         private const int ThumbnailWidth = 300;
         private const int ThumbnailHeight = 300;
+        private readonly string _baseUrl;
 
-        public LocalFileStorageService(IPathProvider pathProvider)
+        public LocalFileStorageService(IPathProvider pathProvider, IConfiguration configuration)
         {
             _pathProvider = pathProvider;
             EnsureDirectoriesExist();
+
+            _baseUrl = configuration["BaseUrl"] ?? "https://localhost:7129";
         }
 
         public async Task<(string filePath, string thumbnailPath)> SavePhotoAsync(
@@ -60,10 +64,10 @@ namespace PhotoGallery.Infrastructure.Services
         }
 
         public string GetPhotoUrl(string filePath) =>
-            "/" + filePath.Replace("\\", "/");
+            $"{_baseUrl}/{filePath.Replace("\\", "/")}";
 
         public string GetThumbnailUrl(string thumbnailPath) =>
-            "/" + thumbnailPath.Replace("\\", "/");
+            $"{_baseUrl}/{thumbnailPath.Replace("\\", "/")}";
 
         private void EnsureDirectoriesExist()
         {

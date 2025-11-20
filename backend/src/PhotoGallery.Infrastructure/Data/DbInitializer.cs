@@ -114,20 +114,55 @@ namespace PhotoGallery.Infrastructure.Data
                         Title = "Nature Photography",
                         Description = "Beautiful landscapes and wildlife",
                         UserId = testUser.Id,
-                        CreatedAt = DateTime.UtcNow.AddDays(-10)
+                        CreatedAt = DateTime.UtcNow.AddDays(-30)
                     },
                     new()
                     {
                         Title = "City Life",
                         Description = "Urban photography collection",
                         UserId = testUser.Id,
-                        CreatedAt = DateTime.UtcNow.AddDays(-5)
+                        CreatedAt = DateTime.UtcNow.AddDays(-25)
                     },
                     new()
                     {
                         Title = "Admin Gallery",
                         Description = "Official photo collection",
                         UserId = admin.Id,
+                        CreatedAt = DateTime.UtcNow.AddDays(-20)
+                    },
+                    new()
+                    {
+                        Title = "Travel Moments",
+                        Description = "Adventures around the world",
+                        UserId = testUser.Id,
+                        CreatedAt = DateTime.UtcNow.AddDays(-15)
+                    },
+                    new()
+                    {
+                        Title = "Portrait Series",
+                        Description = "Professional portrait photography",
+                        UserId = admin.Id,
+                        CreatedAt = DateTime.UtcNow.AddDays(-12)
+                    },
+                    new()
+                    {
+                        Title = "Food Photography",
+                        Description = "Delicious culinary moments",
+                        UserId = testUser.Id,
+                        CreatedAt = DateTime.UtcNow.AddDays(-8)
+                    },
+                    new()
+                    {
+                        Title = "Architecture & Design",
+                        Description = "Modern buildings and structures",
+                        UserId = admin.Id,
+                        CreatedAt = DateTime.UtcNow.AddDays(-5)
+                    },
+                    new()
+                    {
+                        Title = "Events & Celebrations",
+                        Description = "Special moments captured",
+                        UserId = testUser.Id,
                         CreatedAt = DateTime.UtcNow.AddDays(-2)
                     }
                 };

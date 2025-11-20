@@ -1,0 +1,117 @@
+<div class="min-h-screen flex items-center justify-center bg-linear-to-br from-indigo-100 via-purple-50 to-pink-100 py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md w-full space-y-8">
+    <div class="text-center">
+      <div class="flex justify-center">
+        <svg class="w-16 h-16 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+        </svg>
+      </div>
+      <h2 class="mt-6 text-3xl font-bold text-gray-900">
+        Create your account
+      </h2>
+      <p class="mt-2 text-sm text-gray-600">
+        Join PhotoGallery and start sharing
+      </p>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-xl p-8 space-y-6">
+      @if (errorMessage()) {
+        <div class="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg flex items-start space-x-3">
+          <svg class="w-5 h-5 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+          </svg>
+          <span class="text-sm">{{ errorMessage() }}</span>
+        </div>
+      }
+
+      @if (successMessage()) {
+        <div class="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg flex items-start space-x-3">
+          <svg class="w-5 h-5 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          <span class="text-sm">{{ successMessage() }}</span>
+        </div>
+      }
+
+      <form (ngSubmit)="onSubmit()" class="space-y-5">
+        <div>
+          <label for="userName" class="block text-sm font-medium text-gray-700 mb-2">
+            Username
+          </label>
+          <input
+            id="userName"
+            type="text"
+            required
+            [value]="registerData().userName"
+            (input)="updateUserName($any($event.target).value)"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 outline-none"
+            placeholder="johndoe"
+          />
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+            Email address
+          </label>
+          <input
+            id="email"
+            type="email"
+            required
+            [value]="registerData().email"
+            (input)="updateEmail($any($event.target).value)"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 outline-none"
+            placeholder="you@example.com"
+          />
+        </div>
+
+        <div>
+          <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
+            Password
+          </label>
+          <input
+            id="password"
+            type="password"
+            required
+            [value]="registerData().password"
+            (input)="updatePassword($any($event.target).value)"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 outline-none"
+            placeholder="••••••••"
+          />
+          <p class="mt-1 text-xs text-gray-500">
+            Must be at least 8 characters
+          </p>
+        </div>
+
+        <button
+          type="submit"
+          [disabled]="isLoading()"
+          class="w-full flex justify-center items-center px-6 py-3 bg-linear-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+        >
+          @if (isLoading()) {
+            <svg class="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+          } @else {
+            <span>Create account</span>
+          }
+        </button>
+      </form>
+
+      <div class="text-center pt-4 border-t border-gray-200">
+        <p class="text-sm text-gray-600">
+          Already have an account?
+          <a routerLink="/auth/login" class="font-semibold text-purple-600 hover:text-purple-700 transition-colors">
+            Sign in
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <a routerLink="/albums" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">
+        ← Back to Albums
+      </a>
+    </div>
+  </div>
+</div>
